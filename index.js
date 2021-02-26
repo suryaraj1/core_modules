@@ -2,11 +2,19 @@
 // core modules :
 // 1. path module
 // 2. OS module
-const path = require('path');
+// 3. fileSystem module
 const os = require('os');
+const fs = require('fs');
+const path = require('path');
 
-const myPath = '/mnt/d/learn-node/core_modules/index.js';
+// console.log(os.platform());
+// console.log(os.freemem());
+// console.log(os.cpus().length);
+fs.writeFileSync('myfile.txt', 'Hello Node');
+fs.appendFileSync('myfile.txt', ' Hello how are you?');
+// use async node.js as much as possible
+fs.readFile('myfile.txt', (err, data) => {
+    console.log(data.toString());
+});
 
-console.log(os.platform());
-console.log(os.freemem());
-console.log(os.cpus());
+console.log('hello node');
